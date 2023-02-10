@@ -1,14 +1,13 @@
 //Initial Conditions
 const totalSmurfs = 100;
 
+// Intial strategy by smurfs
 let strategy = {
     smurfsLightOnOnce: new Array(totalSmurfs).fill(false),
     totalSmurfCount: 1, // 
     isLightOff: true,
     askQuestion: false,
 }
-
-console.log(`Strategy--> ${strategy}`);
 
 function simulation() {
     const pickedSmurfs = new Set(); // Villain to find whether he picked all of them once or not
@@ -50,7 +49,6 @@ function strategyWhenEnteringRoom(selectedSmurf, strategy) {
         strategy.smurfsLightOnOnce[selectedSmurf - 1] = true;
     }
     else if (selectedSmurf == counterSmurf && !strategy.isLightOff) {
-        console.log(`inside else if`)
         strategy.isLightOff = true;
         strategy.totalSmurfCount++;
         strategy.smurfsLightOnOnce[counterSmurf - 1];
